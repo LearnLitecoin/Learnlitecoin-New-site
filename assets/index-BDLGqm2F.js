@@ -1,0 +1,1 @@
+document.getElementById('root').innerHTML='<h1 style="color:white">LearnLitecoin Full Build Loaded</h1>'
