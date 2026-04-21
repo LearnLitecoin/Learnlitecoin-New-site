@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnLitecoin Maps</title>
+  <style>
+    :root {
+      --bg: #08111d;
+      --panel: rgba(255,255,255,0.05);
+      --line: rgba(255,255,255,0.10);
+      --text: #f3f7fb;
+      --muted: #a9b7c8;
+      --blue: #58b8ff;
+      --shadow: 0 18px 48px rgba(0,0,0,0.35);
+      --radius: 24px;
+      --container: 1100px;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(88,184,255,.16), transparent 25%),
+        linear-gradient(180deg, #07101b 0%, #0a1220 50%, #07101b 100%);
+    }
+    a { color:var(--blue); text-decoration:none; }
+    .container { width:min(var(--container), calc(100% - 32px)); margin:0 auto; }
+    .site-header {
+      position:sticky; top:0; z-index:50;
+      background:rgba(7,16,27,.88);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(10px);
+    }
+    .nav {
+      display:flex; justify-content:space-between; align-items:center; gap:18px; padding:16px 0;
+    }
+    .brand {
+      display:flex; align-items:center; gap:12px; color:white; font-weight:800; font-size:1.2rem;
+    }
+    .brand-coin, .coin-badge {
+      display:inline-flex; align-items:center; justify-content:center;
+      width:44px; height:44px; border-radius:14px;
+      color:var(--blue); background:rgba(88,184,255,.10);
+      border:1px solid rgba(88,184,255,.35); font-weight:900; font-size:22px;
+    }
+    .nav-links { display:flex; flex-wrap:wrap; gap:16px; }
+    .nav-links a { color:var(--muted); }
+    .hero, .section { padding:56px 0; }
+    .hero { border-bottom:1px solid var(--line); }
+    .eyebrow {
+      display:inline-block; margin-bottom:14px; font-size:.78rem; text-transform:uppercase;
+      letter-spacing:.22em; color:var(--blue); font-weight:700;
+    }
+    h1,h2,h3 { margin:0 0 12px; line-height:1.12; letter-spacing:-.03em; }
+    h1 { font-size:clamp(2.3rem, 5vw, 4rem); }
+    h2 { font-size:clamp(1.8rem, 4vw, 2.8rem); }
+    p { margin:0; color:var(--muted); }
+    .lead { max-width:760px; font-size:1.05rem; margin-top:16px; }
+    .grid { display:grid; gap:22px; }
+    .three { grid-template-columns:repeat(3,1fr); }
+    .card {
+      border:1px solid var(--line);
+      background:var(--panel);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:24px;
+    }
+    .map-box {
+      margin-top:18px;
+      min-height:220px;
+      border:1px dashed rgba(88,184,255,.35);
+      border-radius:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      background:rgba(4,10,17,.45);
+      color:#d7e0ea;
+      padding:20px;
+    }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      min-height:44px; padding:0 18px; border-radius:16px; font-weight:700;
+      border:1px solid rgba(255,255,255,.1); color:white; background:rgba(255,255,255,.02);
+      margin-top:18px;
+    }
+    @media (max-width: 900px) {
+      .three { grid-template-columns:1fr; }
+      .nav { flex-direction:column; align-items:start; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="brand-coin">Ł</span>
+        <span><span style="color:white;">Learn</span><span style="color:#58b8ff;">Litecoin</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="guides.html">Guides</a>
+        <a href="tools.html">Tools</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Maps</div>
+        <h1>Find ATMs, merchants, and places to spend Litecoin.</h1>
+        <p class="lead">Start with live map links now, then upgrade later into your own verified Litecoin locator network.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="grid three">
+          <article class="card" id="atm-map">
+            <div class="coin-badge">Ł</div>
+            <h3>Litecoin ATM Map</h3>
+            <p>Find ATMs that support Litecoin by location, ZIP code, or current location.</p>
+            <div class="map-box">Live ATM map area or outbound map link goes here.</div>
+            <a class="btn" href="#atm-map-link">Open ATM Map</a>
+          </article>
+
+          <article class="card" id="merchant-map">
+            <div class="coin-badge">Ł</div>
+            <h3>Merchants Near You</h3>
+            <p>Discover local businesses that accept Litecoin directly or through payment processors.</p>
+            <div class="map-box">Merchant map area or curated merchant list goes here.</div>
+            <a class="btn" href="#merchant-map-link">View Merchant Map</a>
+          </article>
+
+          <article class="card" id="spend-map">
+            <div class="coin-badge">Ł</div>
+            <h3>Spend Litecoin</h3>
+            <p>Browse online and in-person ways to use Litecoin in the real world.</p>
+            <div class="map-box">Spend directory or external spend resource goes here.</div>
+            <a class="btn" href="#spend-directory-link">View Spend Directory</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
