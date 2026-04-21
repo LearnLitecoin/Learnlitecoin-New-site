@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LearnLitecoin Guides</title>
+  <meta name="description" content="Step-by-step Litecoin guides for wallets, buying, sending, receiving, and merchant setup." />
+  <style>
+    :root {
+      --bg: #08111d;
+      --bg-alt: #0d1725;
+      --panel: rgba(255, 255, 255, 0.05);
+      --line: rgba(255, 255, 255, 0.10);
+      --text: #f3f7fb;
+      --muted: #a9b7c8;
+      --blue: #58b8ff;
+      --shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+      --radius: 24px;
+      --container: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(88, 184, 255, 0.16), transparent 25%),
+        radial-gradient(circle at left center, rgba(200, 209, 219, 0.10), transparent 20%),
+        linear-gradient(180deg, #07101b 0%, #0a1220 50%, #07101b 100%);
+      line-height: 1.6;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    .container { width: min(var(--container), calc(100% - 32px)); margin: 0 auto; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(7, 16, 27, 0.88);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    .brand-coin, .coin-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      color: var(--blue);
+      background: rgba(88, 184, 255, 0.10);
+      border: 1px solid rgba(88, 184, 255, 0.35);
+      box-shadow: 0 8px 28px rgba(47, 168, 255, 0.12);
+      font-weight: 900;
+      font-size: 22px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    .hero {
+      padding: 64px 0 32px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 12px;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    h1 { font-size: clamp(2.3rem, 5vw, 4rem); }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+    h3 { font-size: 1.35rem; }
+
+    p { margin: 0; color: var(--muted); }
+
+    .lead {
+      max-width: 760px;
+      font-size: 1.05rem;
+      margin-top: 16px;
+    }
+
+    .section {
+      padding: 56px 0;
+    }
+
+    .section-alt {
+      background: rgba(255,255,255,0.03);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 24px;
+    }
+
+    .guide-card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .guide-list {
+      margin: 18px 0 0;
+      padding-left: 20px;
+      color: #d7e0ea;
+    }
+
+    .guide-list li + li {
+      margin-top: 10px;
+    }
+
+    .tool-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 16px;
+      font-weight: 700;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: #04121d;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.02);
+      border-color: var(--line);
+      color: white;
+    }
+
+    @media (max-width: 760px) {
+      .nav { flex-direction: column; align-items: start; }
+      .section, .hero { padding: 48px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="brand-coin">Ł</span>
+        <span><span style="color:white;">Learn</span><span style="color:#58b8ff;">Litecoin</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#wallet-guide">Wallet</a>
+        <a href="#buy-guide">Buy</a>
+        <a href="#send-guide">Send & Receive</a>
+        <a href="#merchant-guide">Merchants</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Learn</div>
+        <h1>Litecoin Guides</h1>
+        <p class="lead">Step-by-step educational content to help people buy, use, and understand Litecoin with confidence.</p>
+      </div>
+    </section>
+
+    <section class="section" id="wallet-guide">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Guide 1</div>
+          <h2>How to Set Up a Litecoin Wallet</h2>
+          <p>Keep wallet education simple, secure, and beginner-friendly.</p>
+        </div>
+
+        <div class="guide-card">
+          <h3>Nexus Wallet and Cake Wallet</h3>
+          <ol class="guide-list">
+            <li>Choose a wallet that supports Litecoin.</li>
+            <li>Download the wallet from the official source.</li>
+            <li>Create your wallet and back up the recovery phrase.</li>
+            <li>Do not share your seed phrase or private keys.</li>
+            <li>Use your Litecoin address or QR code to receive funds.</li>
+          </ol>
+
+          <div class="tool-actions">
+            <a class="btn btn-primary" href="#nexus-affiliate-link">Set Up Nexus Wallet</a>
+            <a class="btn btn-secondary" href="#cake-affiliate-link">Download Cake Wallet</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="buy-guide">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Guide 2</div>
+          <h2>How to Buy Litecoin</h2>
+          <p>Help users understand the safest path from purchase to wallet custody.</p>
+        </div>
+
+        <div class="guide-card">
+          <ol class="guide-list">
+            <li>Set up your wallet first.</li>
+            <li>Use a supported wallet buy feature or a trusted exchange.</li>
+            <li>Review fees before confirming the purchase.</li>
+            <li>Move your Litecoin into your own wallet if needed.</li>
+            <li>Double-check the receiving address before sending.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="send-guide">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Guide 3</div>
+          <h2>How to Send &amp; Receive Litecoin</h2>
+          <p>Make transactions less intimidating for new users.</p>
+        </div>
+
+        <div class="guide-card">
+          <ol class="guide-list">
+            <li>Open your Litecoin wallet.</li>
+            <li>To receive, copy your address or show your QR code.</li>
+            <li>To send, paste the destination address or scan a QR code.</li>
+            <li>Enter the amount carefully.</li>
+            <li>Review the details and confirm the transaction.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="merchant-guide">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Guide 4</div>
+          <h2>How to Accept Litecoin for Your Business</h2>
+          <p>Keep the merchant setup path clear and simple.</p>
+        </div>
+
+        <div class="guide-card">
+          <ol class="guide-list">
+            <li>Choose whether you want direct wallet payments or a payment processor.</li>
+            <li>Set up BitPay or your preferred payment solution.</li>
+            <li>Create a checkout flow using a QR code, online checkout, or invoice.</li>
+            <li>Test the payment process before going live.</li>
+            <li>Train staff on how to recognize and complete a payment.</li>
+          </ol>
+
+          <div class="tool-actions">
+            <a class="btn btn-primary" href="#bitpay-affiliate-link">Set Up BitPay</a>
+            <a class="btn btn-secondary" href="mailto:you@example.com">Work With LearnLitecoin</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
