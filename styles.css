@@ -1,1 +1,39 @@
-test
+/* UPDATED SPACING + CLEAN LAYOUT */
+.section { padding:56px 0 40px; }
+.section-heading { margin-bottom:30px; }
+.section-heading h2 { margin-bottom:14px; }
+.section-heading p { max-width:760px; }
+
+.card-grid,
+.steps-grid,
+.merchant-layout,
+.mweb-grid,
+.timeline,
+.stats-strip { gap:28px; }
+
+.feature-card,
+.wallet-card,
+.merchant-card,
+.step-card,
+.timeline article,
+.stats-strip article {
+  padding:28px;
+  border-radius:20px;
+}
+
+.step-card span {
+  width:52px;
+  height:52px;
+  margin-bottom:18px;
+}
+
+.wallet-card ul,
+.merchant-card ul {
+  margin-top:16px;
+  padding-left:20px;
+}
+
+.wallet-card li,
+.merchant-card li {
+  margin-bottom:10px;
+}
