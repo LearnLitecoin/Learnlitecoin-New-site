@@ -21,7 +21,7 @@ A Vite + React + Tailwind starter build for LearnLitecoin.
 - Placeholder links for:
   - Nexus affiliate link
   - Cake affiliate link
-  - BitPay affiliate link
+  - LitePayPOS affiliate link
   - merchant contact and map data sources
 
 ## Important notes
@@ -32,10 +32,10 @@ Several places still use placeholder links such as:
 
 - `#nexus-affiliate-link`
 - `#cake-affiliate-link`
-- `#bitpay-affiliate-link`
+- `#LitePayPOS-affiliate-link`
 - `#atm-data-source-link`
 - `#litecoin-spend-link`
-- `#bitpay-directory-link`
+- `#LitePayPOS-directory-link`
 - `#contact`
 - `#video-link`
 
