@@ -87,6 +87,12 @@
     }
     .btn-primary { background:var(--blue); color:#04121d; }
     .btn-secondary { background:rgba(255,255,255,.02); border-color:var(--line); color:white; }
+    footer {
+      border-top:1px solid var(--line);
+      padding:40px 0;
+      margin-top:20px;
+      color:var(--muted);
+    }
     @media (max-width: 900px) {
       .three, .two { grid-template-columns:1fr; }
       .nav { flex-direction:column; align-items:start; }
@@ -103,6 +109,7 @@
       <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="guides.html">Guides</a>
+        <a href="tools.html">Tools</a>
         <a href="maps.html">Maps</a>
       </nav>
     </div>
@@ -144,11 +151,11 @@
 
           <article class="card">
             <div class="coin-badge">Ł</div>
-            <h3>BitPay</h3>
-            <p>Use BitPay for spending options, merchant checkout, or business payment setup.</p>
-            <div class="tag">Affiliate Link</div>
+            <h3>LitePayPOS</h3>
+            <p>Use LitePayPOS for Litecoin merchant checkout, QR payments, and business payment setup.</p>
+            <div class="tag">Platform</div>
             <div class="actions">
-              <a class="btn btn-primary" href="#bitpay-affiliate-link">Use LitePayPOS</a>
+              <a class="btn btn-primary" href="#litepaypos-link">Use LitePayPOS</a>
               <a class="btn btn-secondary" href="guides.html#merchant-guide">Set Up LitePayPOS</a>
             </div>
           </article>
@@ -161,8 +168,8 @@
         <div class="grid two">
           <article class="card">
             <div class="eyebrow">Business</div>
-            <h2>Work with LearnLitecoin</h2>
-            <p>Need help setting things up? Guide businesses through wallets, QR checkout, and merchant onboarding.</p>
+            <h2>Set Up LitePayPOS with LearnLitecoin</h2>
+            <p>Need help getting everything working? Guide businesses through wallets, QR checkout, and merchant onboarding.</p>
             <ul style="margin-top:18px; color:#d7e0ea; padding-left:20px;">
               <li>Wallet setup</li>
               <li>LitePayPOS setup</li>
@@ -171,7 +178,7 @@
             </ul>
             <div class="actions">
               <a class="btn btn-primary" href="mailto:you@example.com">Get Set Up with LearnLitecoin</a>
-              <a class="btn btn-secondary" href="#bitpay-affiliate-link">Start with LitePayPOS</a>
+              <a class="btn btn-secondary" href="#litepaypos-link">Start with LitePayPOS</a>
             </div>
           </article>
 
@@ -181,7 +188,7 @@
             <div style="margin-top:18px; display:grid; gap:14px;">
               <div><strong>First Litecoin wallet:</strong><br><span style="color:#a9b7c8;">Nexus Wallet</span></div>
               <div><strong>Wallet with MWEB messaging:</strong><br><span style="color:#a9b7c8;">Cake Wallet</span></div>
-              <div><strong>Spending and merchant tools:</strong><br><span style="color:#a9b7c8;">LitePayPOS</span></div>
+              <div><strong>Merchant checkout platform:</strong><br><span style="color:#a9b7c8;">LitePayPOS</span></div>
               <div><strong>Business setup:</strong><br><span style="color:#a9b7c8;">LitePayPOS + LearnLitecoin</span></div>
               <div><strong>Beginner path:</strong><br><span style="color:#a9b7c8;">LearnLitecoin guides + wallet setup</span></div>
             </div>
@@ -190,5 +197,11 @@
       </div>
     </section>
   </main>
+
+  <footer>
+    <div class="container">
+      LearnLitecoin — Litecoin education & merchant onboarding
+    </div>
+  </footer>
 </body>
 </html>
