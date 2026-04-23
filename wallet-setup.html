@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Set Up a Litecoin Wallet | LearnLitecoin</title>
+<meta name="description" content="Learn how to set up a Litecoin wallet step by step, back it up safely, and send your first test transaction.">
+<style>
+:root {
+  --bg: #08111d;
+  --bg-alt: #0d1725;
+  --panel: rgba(255,255,255,0.05);
+  --line: rgba(255,255,255,0.10);
+  --text: #f3f7fb;
+  --muted: #a9b7c8;
+  --blue: #58b8ff;
+  --shadow: 0 18px 48px rgba(0,0,0,0.35);
+  --radius: 24px;
+  --container: 1100px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top right, rgba(88,184,255,0.16), transparent 25%),
+    radial-gradient(circle at left center, rgba(200,209,219,0.10), transparent 20%),
+    linear-gradient(180deg, #07101b 0%, #0a1220 50%, #07101b 100%);
+  line-height: 1.65;
+}
+a { color: var(--blue); text-decoration: none; }
+.container { width: min(var(--container), calc(100% - 32px)); margin: 0 auto; }
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(7,16,27,0.88); border-bottom: 1px solid var(--line); backdrop-filter: blur(10px);
+}
+.nav { display:flex; justify-content:space-between; align-items:center; gap:18px; padding:16px 0; }
+.brand { display:flex; align-items:center; gap:12px; color:white; font-weight:800; font-size:1.2rem; }
+.brand-coin {
+  display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:14px;
+  color:var(--blue); background:rgba(88,184,255,0.10); border:1px solid rgba(88,184,255,0.35);
+  box-shadow:0 8px 28px rgba(47,168,255,0.12); font-weight:900; font-size:22px;
+}
+.nav-links { display:flex; flex-wrap:wrap; gap:16px; }
+.nav-links a { color: var(--muted); font-size: .95rem; }
+.nav-links a:hover { color: var(--blue); }
+.hero { padding: 72px 0 44px; border-bottom:1px solid var(--line); }
+.eyebrow { display:inline-block; margin-bottom:14px; font-size:.78rem; text-transform:uppercase; letter-spacing:.22em; color:var(--blue); font-weight:700; }
+h1,h2,h3 { margin:0 0 12px; line-height:1.12; letter-spacing:-.03em; }
+h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); max-width: 900px; }
+h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); }
+h3 { font-size: 1.2rem; }
+p { margin:0; color:var(--muted); }
+.lead { font-size:1.08rem; max-width:760px; margin-top:16px; }
+.hero-actions, .button-row { display:flex; flex-wrap:wrap; gap:14px; margin-top:26px; }
+.btn {
+  display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:0 20px;
+  border-radius:16px; font-weight:700; border:1px solid transparent;
+}
+.btn-primary { background:var(--blue); color:#04121d; }
+.btn-secondary { background:rgba(255,255,255,0.02); border-color:var(--line); color:white; }
+.section { padding: 64px 0; }
+.section-alt { background: rgba(255,255,255,0.03); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.grid { display:grid; gap:28px; }
+.grid.two { grid-template-columns: 1.1fr .9fr; }
+.grid.three { grid-template-columns: repeat(3,1fr); }
+.card, .step-box, .tip-box {
+  border:1px solid var(--line); background:var(--panel); border-radius:var(--radius); box-shadow:var(--shadow);
+}
+.card, .tip-box { padding: 30px; }
+.step-box { padding: 26px; }
+.step-number {
+  display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:12px;
+  background:rgba(88,184,255,0.12); color:var(--blue); font-weight:800; margin-bottom:16px;
+}
+.check-list { margin: 18px 0 0; padding-left: 20px; color:#d7e0ea; }
+.check-list li + li { margin-top:10px; }
+.callout {
+  margin-top: 18px; padding: 18px 20px; border-radius: 18px;
+  background: rgba(88,184,255,0.09); border:1px solid rgba(88,184,255,0.22); color:#dbe9f8;
+}
+footer { border-top:1px solid var(--line); padding:40px 0; color:var(--muted); }
+@media (max-width: 900px) {
+  .grid.two, .grid.three { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .nav { flex-direction:column; align-items:start; }
+  .hero, .section { padding: 54px 0; }
+  .card, .step-box, .tip-box { padding: 24px; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="brand-coin">Ł</span>
+        <span><span style="color:white;">Learn</span><span style="color:#58b8ff;">Litecoin</span></span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="guides.html">Guides</a>
+        <a href="accept-litecoin.html">Accept Litecoin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Guide 1</div>
+        <h1>How to Set Up a Litecoin Wallet</h1>
+        <p class="lead">This is the first step for almost everyone. Get a wallet, back it up correctly, and learn how to receive your first Litecoin without making beginner mistakes.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#steps">Start the setup</a>
+          <a class="btn btn-secondary" href="guides.html">Back to guides</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="steps">
+      <div class="container grid two">
+        <div>
+          <h2>Step-by-step wallet setup</h2>
+          <div class="grid" style="margin-top:24px;">
+            <div class="step-box">
+              <div class="step-number">1</div>
+              <h3>Choose a wallet</h3>
+              <p>For most beginners, a simple mobile wallet is the easiest place to start. Choose one that is known, actively used, and simple to back up.</p>
+              <div class="callout">Good beginner approach: start with a mobile wallet you can use for small amounts while you learn.</div>
+            </div>
+            <div class="step-box">
+              <div class="step-number">2</div>
+              <h3>Download from the official source</h3>
+              <p>Only download from the official app store listing or official wallet site. Avoid random links, fake ads, or copied apps.</p>
+            </div>
+            <div class="step-box">
+              <div class="step-number">3</div>
+              <h3>Create the wallet</h3>
+              <p>Open the app, create a new wallet, and follow the prompts carefully. This is the point where your backup phrase matters most.</p>
+            </div>
+            <div class="step-box">
+              <div class="step-number">4</div>
+              <h3>Write down your seed phrase</h3>
+              <p>Write the recovery phrase on paper and store it somewhere safe. If you lose your phone, this phrase is how you recover your funds.</p>
+            </div>
+            <div class="step-box">
+              <div class="step-number">5</div>
+              <h3>Set a PIN or security lock</h3>
+              <p>Protect your wallet with a PIN, passcode, or biometric lock if supported. This helps protect the app if someone gets your phone.</p>
+            </div>
+            <div class="step-box">
+              <div class="step-number">6</div>
+              <h3>Test receiving Litecoin</h3>
+              <p>Use the receive button to generate your address or QR code. Send a small test amount first so you understand the flow before using larger amounts.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="card">
+            <h2>What not to do</h2>
+            <ul class="check-list">
+              <li>Do not screenshot your seed phrase</li>
+              <li>Do not store it in your notes app</li>
+              <li>Do not text it to yourself</li>
+              <li>Do not keep large amounts in a wallet you do not understand yet</li>
+            </ul>
+          </div>
+          <div class="card" style="margin-top:28px;">
+            <h2>What to do next</h2>
+            <ul class="check-list">
+              <li>Buy a small amount of Litecoin</li>
+              <li>Practice sending and receiving</li>
+              <li>Learn what confirmations mean</li>
+              <li>Move to the next guide when ready</li>
+            </ul>
+            <div class="button-row">
+              <a class="btn btn-primary" href="accept-litecoin.html">Merchant setup</a>
+              <a class="btn btn-secondary" href="guides.html">All guides</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <div class="eyebrow">Quick answers</div>
+        <h2>Common beginner questions</h2>
+        <div class="grid three" style="margin-top:26px;">
+          <div class="tip-box">
+            <h3>What is a wallet really?</h3>
+            <p>A wallet is the tool that helps you manage your Litecoin. It lets you receive, send, and back up access to your funds.</p>
+          </div>
+          <div class="tip-box">
+            <h3>Is the wallet holding my coins?</h3>
+            <p>Your Litecoin lives on the network. Your wallet manages the keys and access needed to use it.</p>
+          </div>
+          <div class="tip-box">
+            <h3>Should I start big?</h3>
+            <p>No. Start small, learn the process, then increase your comfort and your amount over time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container card">
+        <div class="eyebrow">Next step</div>
+        <h2>After your wallet is ready, learn how to buy Litecoin.</h2>
+        <p>Your first guide should always lead to the next one. That is how LearnLitecoin becomes a real education path instead of just a pile of pages.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="guides.html">Back to guides</a>
+          <a class="btn btn-secondary" href="accept-litecoin.html">Accept Litecoin for business</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">LearnLitecoin — Litecoin education & merchant onboarding</div>
+  </footer>
+</body>
+</html>
