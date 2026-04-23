@@ -56,25 +56,60 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       color: white;
       font-weight: 800;
       font-size: 1.2rem;
     }
 
-    .brand-coin, .coin-badge, .mini-coin {
+    .brand-coin {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      color: var(--blue);
-      background: rgba(88, 184, 255, 0.10);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      color: #ffffff;
+      background: linear-gradient(135deg, #58b8ff, #2f78ff);
+      border: 1px solid rgba(88, 184, 255, 0.45);
+      box-shadow: 0 10px 30px rgba(47, 168, 255, 0.25);
+      font-weight: 900;
+      font-size: 24px;
+      flex: 0 0 48px;
+    }
+
+    .brand-name {
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .brand-name .learn { color: #ffffff; }
+    .brand-name .litecoin { color: #58b8ff; }
+
+    .coin-badge, .mini-coin {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      color: #ffffff;
+      background: linear-gradient(135deg, #58b8ff, #2f78ff);
       border: 1px solid rgba(88, 184, 255, 0.35);
-      box-shadow: 0 8px 28px rgba(47, 168, 255, 0.12);
+      box-shadow: 0 8px 28px rgba(47, 168, 255, 0.14);
       font-weight: 900;
       font-size: 22px;
+      margin-bottom: 16px;
+      flex: 0 0 48px;
+    }
+
+    .panel-title-row .mini-coin {
+      margin-bottom: 0;
     }
 
     .nav-links {
@@ -157,7 +192,7 @@
     .stat-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      gap: 18px;
       margin-top: 28px;
       max-width: 720px;
     }
@@ -175,27 +210,27 @@
       box-shadow: var(--shadow);
     }
 
-    .stat-card { padding: 16px 18px; }
+    .stat-card { padding: 18px 20px; }
 
-    .hero-panel { display: grid; gap: 18px; }
+    .hero-panel { display: grid; gap: 20px; }
 
-    .panel-card { padding: 24px; }
+    .panel-card { padding: 28px; }
 
     .panel-title-row {
       display: flex;
       gap: 14px;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      gap: 18px;
     }
 
     .step-card {
-      padding: 18px;
+      padding: 24px;
       border: 1px solid var(--line);
       border-radius: 20px;
       background: rgba(4, 10, 17, 0.45);
@@ -203,7 +238,7 @@
 
     .step-label {
       display: inline-block;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
@@ -212,24 +247,24 @@
     }
 
     .panel-banner {
-      padding: 22px 24px;
+      padding: 24px 26px;
       font-size: 1.1rem;
       font-weight: 700;
       background: linear-gradient(90deg, rgba(10,18,32,0.95), rgba(16,27,43,0.95));
     }
 
-    .section { padding: 72px 0; }
+    .section { padding: 76px 0; }
     .section-alt {
       background: rgba(255,255,255,0.03);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
 
-    .section-heading { max-width: 840px; margin-bottom: 30px; }
+    .section-heading { max-width: 840px; margin-bottom: 34px; }
 
     .card-grid {
       display: grid;
-      gap: 22px;
+      gap: 26px;
     }
 
     .three { grid-template-columns: repeat(3, 1fr); }
@@ -237,15 +272,15 @@
     .two { grid-template-columns: repeat(2, 1fr); }
 
     .feature-card, .mini-card, .service-panel, .cta-band {
-      padding: 24px;
+      padding: 30px;
     }
 
-    .feature-card p, .mini-card p { margin-top: 10px; }
+    .feature-card p, .mini-card p { margin-top: 12px; }
 
     .split-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 26px;
+      gap: 30px;
       align-items: start;
     }
 
@@ -254,12 +289,12 @@
     }
 
     .check-list {
-      margin: 18px 0 0;
-      padding-left: 20px;
+      margin: 20px 0 0;
+      padding-left: 22px;
       color: #d7e0ea;
     }
 
-    .check-list li + li { margin-top: 8px; }
+    .check-list li + li { margin-top: 10px; }
 
     .heading-row {
       display: flex;
@@ -270,7 +305,7 @@
 
     .text-link {
       display: inline-block;
-      margin-top: 16px;
+      margin-top: 18px;
       font-weight: 700;
     }
 
@@ -299,6 +334,7 @@
       .nav { flex-direction: column; align-items: start; }
       .hero-grid, .split-grid, .two, .three, .four, .stat-row { grid-template-columns: 1fr; }
       .section, .hero { padding: 56px 0; }
+      .feature-card, .mini-card, .service-panel, .cta-band, .step-card, .panel-card { padding: 24px; }
     }
   </style>
 </head>
@@ -307,7 +343,7 @@
     <div class="container nav">
       <a class="brand" href="index.html">
         <span class="brand-coin">Ł</span>
-        <span><span style="color:white;">Learn</span><span style="color:#58b8ff;">Litecoin</span></span>
+        <span class="brand-name"><span class="learn">Learn</span><span class="litecoin">Litecoin</span></span>
       </a>
       <nav class="nav-links">
         <a href="#why-litecoin">Why Litecoin</a>
